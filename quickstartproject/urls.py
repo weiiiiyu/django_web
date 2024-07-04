@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from restaurants import views
 
 urlpatterns = [
     path('', include('hello_azure.urls')),
     path('admin/', admin.site.urls),
+    path('api/your-models/', views.your_model_list, name='your-model-list'),
+    path('api/your-models/<int:pk>/', views.your_model_detail, name='your-model-detail'),
 ]
